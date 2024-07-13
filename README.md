@@ -26,7 +26,8 @@ Este projeto Java utiliza Spring Boot para criar um catálogo de livros interati
 - ## Instalação e Configuração
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
+git clone https://github.com/quasiEvil/ONE-Challenge-LiterAlura.git
+
 ```
 2. Abra o projeto no IntelliJ IDEA ou na sua IDE Java preferida.
 
