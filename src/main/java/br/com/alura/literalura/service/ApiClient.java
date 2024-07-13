@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 
 @Service
 public class ApiClient {
+
     public String getData(String url){
         HttpClient client = HttpClient.newBuilder()
                 .followRedirects(HttpClient.Redirect.ALWAYS)

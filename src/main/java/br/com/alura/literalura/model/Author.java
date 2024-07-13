@@ -4,8 +4,13 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "authors")
+@Getter
+@Setter
 public class Author {
 
     @Id
@@ -15,7 +20,10 @@ public class Author {
     @Column(unique = true)
     private String name;
 
+    @Column(name = "year_of_birth")
     private Integer yearOfBirth;
+
+    @Column(name = "year_of_death")
     private Integer yearOfDeath;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -34,47 +42,14 @@ public class Author {
         this.books = new ArrayList<>();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getYearOfBirth() {
-        return yearOfBirth;
-    }
-
-    public void setYearOfBirth(Integer yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
-    }
-
-    public Integer getYearOfDeath() {
-        return yearOfDeath;
-    }
-
-    public void setYearOfDeath(Integer yearOfDeath) {
-        this.yearOfDeath = yearOfDeath;
-    }
-
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
-
     public void addBook(Book book) {
         this.books.add(book);
+    }
+
+    @Override
+    public String toString() {
+        return "\nNome: " + getName() +
+                "\nData De Nascimento: " + (getYearOfBirth() != null ? getYearOfBirth() : "Desconhecido") +
+                "\nData De Falecimento: " + (getYearOfDeath() != null ? getYearOfDeath() : "Desconhecido");
     }
 }

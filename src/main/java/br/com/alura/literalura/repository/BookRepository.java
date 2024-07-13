@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Query("SELECT DISTINCT b.language FROM Book b")
+    @Query("SELECT DISTINCT b.languageCode FROM Book b")
     List<String> searchLanguages();
 
-    List<Book> findByLanguage(String language);
+    List<Book> findByLanguageCode(String languageCode);
 
     boolean existsByTitle(String title);
 

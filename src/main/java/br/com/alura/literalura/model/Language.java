@@ -1,15 +1,36 @@
 package br.com.alura.literalura.model;
 
-public enum Language {
+import lombok.Getter;
 
+@Getter
+public enum Language {
     PT("pt", "Português"),
     EN("en", "Inglês"),
     ES("es", "Espanhol"),
-    IT("it", "Italiano");
+    UNKNOWN("unknown", "Desconhecido");
 
-    private String language;
+    private final String code;
+    private final String displayName;
 
-    Language(String symbol, String language) {
-        this.language = language;
+    Language(String code, String displayName) {
+        this.code = code;
+        this.displayName = displayName;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public static Language fromCode(String code) {
+        for (Language language : Language.values()) {
+            if (language.getCode().equalsIgnoreCase(code)) {
+                return language;
+            }
+        }
+        return UNKNOWN;
     }
 }

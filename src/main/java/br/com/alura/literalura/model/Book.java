@@ -1,9 +1,14 @@
 package br.com.alura.literalura.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "books")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,67 +16,42 @@ public class Book {
 
     @Column(unique = true)
     private String title;
-    private String language;
+
+    @Column(name = "language", nullable = false)
+    private String languageCode; // Armazena o código do idioma
+
+    @Transient
+    private Language language; // Enum Language que não será armazenado diretamente no banco de dados
+
     private Integer downloadCount;
 
     @ManyToOne
     private Author author;
 
-    public Book() {}
-
-    public Book(String title, String language, Integer downloadCount, Author author) {
+    public Book(String title, Language language, Integer downloadCount, Author author) {
         this.title = title;
+        this.languageCode = language.getCode();
         this.language = language;
         this.downloadCount = downloadCount;
         this.author = author;
     }
 
-    // Getters and setters
-    public Long getId() {
-        return id;
+    @PostLoad
+    private void postLoad() {
+        this.language = Language.fromCode(this.languageCode);
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public Integer getDownloadCount() {
-        return downloadCount;
-    }
-
-    public void setDownloadCount(Integer downloadCount) {
-        this.downloadCount = downloadCount;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
+    @PrePersist
+    @PreUpdate
+    private void prePersistOrUpdate() {
+        this.languageCode = this.language.getCode();
     }
 
     @Override
     public String toString() {
         return "\n---------------------------------------" +
                 "\nTítulo: " + title +
-                "\nIdioma: " + language +
+                "\nIdioma: " + language.getCode() +
                 "\nAutor: " + author.getName() +
                 "\nNúmero de downloads: " + downloadCount;
     }

@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-    boolean existsByName(String name);
-    List<Author> findByYearOfDeathLessThanEqual(int year);
+    List<Author> findByYearOfBirthLessThanEqualAndYearOfDeathIsNullOrYearOfDeathGreaterThan(int year1, int year2);
     Author findByName(String name);
 }
