@@ -6,7 +6,9 @@
 # Fase 3 - Especialização Backend com Java e Spring
 
 ## LiterAlura | Catálogo de Livros
-Este projeto Java utiliza Spring Boot para criar um catálogo de livros interativo, integrando-se à API Gutendex para obter dados de livros e autores. Permite operações como busca por título, listagem de livros cadastrados, e muito mais
+Este projeto Java utiliza Spring Boot para criar um catálogo de livros interativo, integrando-se à API Gutendex para obter dados de livros e autores. Permite operações como busca por título, listagem de livros cadastrados, e muito mais.
+
+![Desafio LiterAlura Badge](https://github.com/user-attachments/assets/2422bc53-a2f8-4000-b467-37b22e149929)
 
 👩🏻‍🎓 [Certificado de conclusão](https://cursos.alura.com.br/certificate/quasiEvil/spring-boot-challenge-literalura)
 
@@ -43,3 +45,10 @@ spring.jpa.hibernate.ddl-auto=update
 - Siga as instruções para realizar operações como busca, inserção e listagem de dados.
 
 ## Demo
+![Java-LiterAlura](https://github.com/user-attachments/assets/02e0335c-e727-49ad-a744-0f2fe23cbaf6)
+
+## Banco de dados local
+<img width="968" alt="Captura de Tela 2024-07-13 às 15 12 54" src="https://github.com/user-attachments/assets/e3b5d17d-9f2a-47ff-915f-a12401853120">
+
+<img width="755" alt="Captura de Tela 2024-07-13 às 15 13 15" src="https://github.com/user-attachments/assets/6d847d0a-52c2-45b0-8d26-580af6699431">
+
