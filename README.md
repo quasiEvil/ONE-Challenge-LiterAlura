@@ -16,7 +16,10 @@ Este projeto Java utiliza Spring Boot para criar um catálogo de livros interati
 - **Busca por Título:** Permite buscar livros pelo título diretamente na API Gutendex.
 - **Cadastro de Livros:** Possibilita inserir novos livros no banco de dados local.
 - **Listagem de Autores:** Exibe uma lista de todos os autores cadastrados.
-- **Estatísticas de Livros:** Fornece estatísticas como os 10 livros mais baixados.
+- **Autores Vivos em Determinado Ano:** Exibe uma lista de todos os autores vivos em um ano específico.
+- **Listagem de Livros em Determinado Idioma**: Exibe uma lista de livros em um idioma específico. 
+- **Top 10:** Exibe os 10 livros mais baixados.
+- **Busca de Autores por Nome:** Permite buscar todos os livros cadastrados de um determinado autor.
 
 ## Requisitos
 - JDK (Kit de Desenvolvimento Java)
